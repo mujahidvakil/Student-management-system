@@ -76,9 +76,15 @@ public class GenericCurdController {
         return teacherCurdService.getTeacher(id);
     }
 
-    @PostMapping("path")
+    @PostMapping("/saveTeacher")
     public Teacher savTeacher(@RequestBody Teacher teacher) {
         teacher = teacherCurdService.saveTeacher(teacher);
+        return teacher;
+    }
+
+    @PutMapping("updateTeacher/{id}")
+    public Teacher putMethodName(@PathVariable String id, @RequestBody Teacher teacher) {
+        teacher = teacherCurdService.updateTeacher(teacher);
         return teacher;
     }
     
